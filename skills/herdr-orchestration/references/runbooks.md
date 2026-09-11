@@ -5,7 +5,7 @@
 1. Confirm Herdr mode on (or explicit one-shot authorization).
 2. Write early problem packet → claim judgment pane → fresh process → verify model banner → prompt pointer only.
 3. Integrate plan; coordinator chooses ordinary routes (**not** Astra).
-4. Claim ordinary pane → readiness recheck → task packet → short pointer.
+4. Claim ordinary pane → settle prior attempt if repurposing → **fresh conversation for a different independent job** (pane may stay) → readiness recheck → task packet → short pointer.
 5. Supervise one awaited handle; correlate receipt + artifacts + independent checks.
 6. Auto-main: mandatory checks → closing packet → Astra recommendation → accept/repair/block.
 7. Release claims after settlement.

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2 — 2026-09-11
+
+- Policy: ordinary-worker fresh conversation required before a different independent job; same-job continuity preserved; Assignment checklist + runbook updated.
+
 ## 0.1.1 — 2026-09-11
 
 - Repair: scope CONTRACT early Astra gate to Sol-main/Auto-main; restore non-OpenAI ordinary pool wording; exact reference model bindings; herdr.dev product link; install/claim evidence under `evidence/`.

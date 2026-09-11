@@ -91,9 +91,23 @@ Direct Herdr is the default execution path. Alternate orchestrators (for example
 
    `python3 <skill>/scripts/claims.py claim --session <session> --worker <pane-id> --owner <owner>`
 
-   Claim failure means choose another available worker or wait. Recheck live occupant and readiness after claiming. Do not dispatch to a busy, blocked, or foreign-owned pane. Do not move claimed panes. Status uses the same arguments without owner; release requires the matching owner.
+   Claim failure means choose another available worker or wait. Recheck live occupant and readiness after claiming. Do not dispatch to a busy, blocked, or foreign-owned pane. Do not move claimed panes. Status uses the same arguments without owner; release requires the matching owner. Before reset or repurposing a slot, verify ownership and that the preceding attempt is settled (see Ordinary-worker conversation boundaries).
 4. Claims have no automatic expiry or force-steal. Recover an abandoned claim only after verifying its prior job is no longer active and resolving ownership; never remove a claim merely because it is old. Reservations coordinate cooperating clients; they do not prevent manual terminal input.
 5. Give files a single writer. Concurrent conversations must not edit the same files without explicit coordination, even when using different workers. Shared directories remain the default unless isolation is justified.
+
+## Ordinary-worker conversation boundaries
+
+Before the first prompt for a **different independent job**, the coordinator MUST establish a **fresh agent conversation** using a supported harness mechanism. The persistent pool pane MAY remain. If conversation freshness cannot otherwise be established, the coordinator MUST use a supported process restart that starts a new conversation without resuming prior history. If no supported clean-start path is available, dispatch MUST stop for that slot and the blocker MUST be disclosed; the coordinator MUST NOT silently continue the old conversation or substitute a model.
+
+For **same-job** clarification, repair, blocked resume, or closing-related follow-up, the coordinator MUST continue the existing claimed conversation when it remains available, usable, and correctly owned. Before resuming after a pause or blocker, the coordinator MUST revalidate ownership and relevant current state. A worker’s `done` message alone does not end the job or require a reset. If the same-job conversation is unavailable or demonstrably unusable, the coordinator MAY use a fresh replacement after settling any uncertain attempt and providing a scoped evidence-based handoff; required gates and repair budgets remain unchanged.
+
+Before resetting or repurposing a slot, the coordinator MUST verify ownership and establish that the preceding attempt is settled, with no unresolved running work or uncertain effects. The coordinator MUST preserve required receipts, artifacts, and outstanding obligations outside the conversation. The coordinator MUST NOT prompt or reset a busy or foreign-owned session. Claim-before-prompt and all existing reservation, role, model, and authorization requirements remain in force; a reset does not satisfy or replace them.
+
+The coordinator SHOULD perform the reset immediately before the next different assignment, rather than automatically after every `done` message. An already verified fresh, unused conversation satisfies the requirement; a redundant reset is not required. Job identity follows the objective and acceptance contract, not an idle pane, elapsed time, a new message, or an arbitrary job label. Unrelated objectives MUST NOT be treated as same-job follow-ups to avoid reset.
+
+Conversation freshness does not establish a clean working directory, filesystem, environment, or external execution state. The coordinator MUST verify relevant runtime state separately and preserve unrelated work. These ordinary-worker rules do not relax the judgment-slot requirement: judgment sessions start a fresh process/conversation for each new job and retain the same session for same-job follow-ups.
+
+Cleared terminal output and prompt text alone are **not** evidence of freshness. Prefer observable evidence such as a new session identity or documented non-resuming launch behavior. Reset commands and installed-version details stay host-local.
 
 ## Ownership
 
@@ -102,6 +116,8 @@ The user-facing coordinator owns the objective, decomposition, acceptance criter
 ## Assignment
 
 Default assignment is a complete reviewable result: clear constraints, writable paths, exact runtime or test command where relevant, reproducible checks, compact receipt, and proof. When a QA fixture is required, it must be runnable and render-smoke-checked unless the task forbids it. The worker fixes its ordinary failures within the bounded scope.
+
+Before the first prompt, apply [Ordinary-worker conversation boundaries](#ordinary-worker-conversation-boundaries): classify same-job vs different independent job; for a different job, verify conversation freshness (not merely a cleared pane); verify claim/owner, intended model/role, and relevant cwd/runtime state; then send the scoped assignment.
 
 Write a small task file: job ID, worker role/no redelegation, outcome, source access, writable paths, constraints, acceptance criteria, time/repair budget and deliverables. Share only necessary authorized data. Keep credentials host-local.
 

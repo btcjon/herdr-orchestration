@@ -1,0 +1,27 @@
+# Runtime / private
+.DS_Store
+*.pyc
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+
+# Claims and host state (never commit)
+.state/
+*.state.json
+.local/
+
+# Receipts, transcripts, credentials
+receipts/
+*.receipt.json
+transcripts/
+.env
+.env.*
+credentials*
+*.pem
+*.key
+
+# Host / private config
+config.local.json
+**/config.local.json
+.host/

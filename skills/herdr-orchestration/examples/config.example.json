@@ -1,0 +1,20 @@
+{
+  "session": "example-session",
+  "claims_state_dir": "~/.local/state/herdr-mode",
+  "judgment_model": {
+    "product": "codex",
+    "model_id": "JUDGMENT_MODEL_ID",
+    "reasoning_effort": "low"
+  },
+  "judgment_slots": [
+    "judgment-1",
+    "judgment-2",
+    "judgment-3"
+  ],
+  "ordinary_pool": [
+    "worker-a",
+    "worker-b",
+    "worker-c"
+  ],
+  "notes": "Synthetic placeholders only. Discover live pane ids each job. Do not copy another operator's bypass flags."
+}

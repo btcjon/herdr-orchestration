@@ -1,0 +1,17 @@
+# Opt-in contract snippet (Herdr orchestration)
+
+**Install this only when you explicitly want default-on Herdr orchestration in primary user-facing sessions.** Linking the skill alone does not apply this text.
+
+Copy the following into your global agent contract (`AGENTS.md` / `SOUL.md` / equivalent), adjusting names to your environment. Workers must **not** recursively activate Herdr mode.
+
+---
+
+In primary user-facing Codex and Cursor sessions, Herdr mode is ON by default. The coordinator profile follows where the main agent runs: Codex defaults to a Sol-class long coordinator (**Sol-main**); Cursor defaults to Auto (**Auto-main**); Codex with Astra as the main model is **Astra-main**. Explicit user routing overrides. In Astra-main, Astra owns objective, decomposition, judgment, routing, and acceptance while ordinary execution goes to the configured ordinary pool. In Sol-main and Auto-main, the coordinator owns the long conversation, coordination, delegation/routing, testing, evidence integration, quality enforcement, and final acceptance. For every substantive job, consult a fresh claimed judgment session before locking the plan: give it a compact problem packet so it can identify hidden complexity, challenge assumptions, and shape the smartest plan and approach—never the parent transcript, and do not ask it to pick named ordinary workers. Keep that same judgment session for same-job follow-ups, quality clarifications, and closing alignment, then reset it before a different job. In Auto-main, Astra is plan/direction/quality clarification and closing alignment recommendation only and does not implement; the ordinary pool executes; the coordinator runs mandatory checks, then for substantive jobs obtains Astra’s `aligned` | `repair_required` | `blocked` recommendation against a plan-versus-result packet before accepting; closing review does not reset the repair budget. In Sol-main, Astra may own consequential core implementation; still require closing alignment when ordinary workers own material outcome-bearing work or the coordinator is uncertain, unless Astra already reviewed the final combined result. Trivial conversation and clearly mechanical hard-checked work may skip gates; scope growth reopens them. Before dispatch, discover the `herdr` skill and this `herdr-orchestration` skill; claim before any prompt and never prompt a busy or foreign-owned pane. Workers execute directly without recursive delegation. “Herdr mode off/on/status” controls this conversation; off stops new dispatches, not running workers. Direct work is only unique inaccessible access, time-critical safety, a tiny isolated closure cheaper than re-dispatch, or a demonstrated unavailable/failed worker after a bounded attempt. Supervise one awaited handle per job with bounded waits and independent verification—receipts and lifecycle states are claims, not proof. Preserve authorization, claims, model boundaries, and user mode/scope; do not invent savings or equivalent-intelligence claims.
+
+Policy package version: see repository `CHANGELOG.md` / `SOURCE-REVISION.md` (contract family 3.32).
+
+---
+
+## Worker non-recursion guard
+
+Add near worker instructions if needed: “You are a Herdr worker. Execute the bounded assignment. Do not activate Herdr orchestration mode or dispatch further workers.”

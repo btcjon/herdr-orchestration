@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3 — 2026-09-11
+
+- Routing: prefer Pi Flash / Pi DeepSeek Flash cheap OpenRouter routes; drop AGY from preferred ordinary pool; discover live names (no hardcoded pane IDs).
+
 ## 0.1.2 — 2026-09-11
 
 - Policy: ordinary-worker fresh conversation required before a different independent job; same-job continuity preserved; Assignment checklist + runbook updated.

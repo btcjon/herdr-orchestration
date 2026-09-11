@@ -4,30 +4,42 @@ Installation, activation, and worker provisioning are **separate** steps. Instal
 
 ## 1. Obtain the package
 
+Product prerequisite: install Herdr from **https://herdr.dev** (agent guide: https://herdr.dev/agent-guide.md). Stock CLI skill discovery follows Herdr/`herdr --help` — not this repo.
+
 ```bash
 # Proposed skills CLI (verify on your harness; not all environments support it)
 npx skills add btcjon/herdr-orchestration --list
 npx skills add btcjon/herdr-orchestration --skill herdr-orchestration
 ```
 
-Manual:
+Manual (verified on macOS for this release — see `evidence/install-canary.md`):
 
 ```bash
-git clone https://github.com/btcjon/herdr-orchestration.git
-# link or copy ONLY skills/herdr-orchestration into your harness skill directory
-# resolve that directory from your harness docs — do not assume one path
+git clone --branch v0.1.0 https://github.com/btcjon/herdr-orchestration.git
+# Cursor / Codex / Hermes-compatible: link ONLY the skill package directory
+ln -s "$(pwd)/herdr-orchestration/skills/herdr-orchestration" \
+  "<your-harness-skills-dir>/herdr-orchestration"
 ```
+
+Concrete harness skill directories (consult current product docs if these move):
+
+| Harness | Typical skill directory | 0.1.x status |
+|---|---|---|
+| Hermes | `~/.hermes/skills/` | Path documented; symlink method **verified** in isolated temp |
+| Cursor | User/project skills dir per Cursor docs | Layout compatible; discovery **verify after link** |
+| Codex | Skills path per Codex docs | Layout compatible; discovery **verify after link** |
+| Claude | Skills/plugin path per product docs | Layout compatible; **unverified** discovery |
 
 Never overwrite an existing destination skill. Verify relative references (`references/`, `scripts/`) remain inside the installed package.
 
 ## 2. Harness discovery (document per harness)
 
-| Harness | Load notes | 0.1.0 verification |
+| Harness | Load notes | 0.1.x verification |
 |---|---|---|
-| Cursor | Project/user skills or linked skill dir; reload agent session | Documented; verify locally |
-| Codex | Skills path per Codex docs; new session | Documented; verify locally |
-| Hermes | Symlink into Hermes skills dir; `skill_view` / equivalent | Documented; verify locally |
-| Claude | Skills / plugin path per product docs | Documented; verify locally |
+| Cursor | Link skill package; reload agent session | Symlink+resolve **verified** offline; in-app discovery verify locally |
+| Codex | Skills path per Codex docs; new session | Layout compatible; verify locally |
+| Hermes | Symlink into `~/.hermes/skills/`; `skill_view` / equivalent | Symlink method **verified** in isolated canary |
+| Claude | Skills / plugin path per product docs | Documented; **unverified** |
 
 Treat combinations as **unverified** until you run discovery on that harness. Reload after install. Pin to a git tag for updates; remove only package-owned links/snippets on uninstall.
 

@@ -1,0 +1,12 @@
+{
+  "criterion": "AC5",
+  "observed": "claim_conflict_exit_3",
+  "prompts_issued": 0,
+  "payload": {
+    "ok": false,
+    "error": "conflict",
+    "current_owner": "foreign-owner",
+    "session": "canary",
+    "worker": "synth:p1"
+  }
+}

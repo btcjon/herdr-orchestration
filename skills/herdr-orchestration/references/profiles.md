@@ -21,10 +21,23 @@ Do **not** infer “we are on Cursor ⇒ Auto-main” if the user selected a dif
 
 ## Supported reference bindings (configure locally)
 
+## Exact reference bindings (this package’s reference configuration)
+
+These are the **reference** identities from the source policy (contract family 3.32). Local `config.example.json` may substitute placeholders for *your* pane labels and session name, but must not silently claim equivalence if you change models.
+
+| Role | Reference identity |
+|---|---|
+| Sol-main coordinator | Codex **Sol 5.6** (Sol-class long coordinator) |
+| Auto-main coordinator | Cursor **Auto** |
+| Astra-main / judgment model | Codex **`gpt-6-astra`** with `model_reasoning_effort=low` |
+| Judgment slot names (reference) | `astra-low-1` … `astra-low-5` |
+| Ordinary pool (Astra-main) | **non-OpenAI** routes only |
+| Product / stock CLI skill | [herdr.dev](https://herdr.dev) + stock `herdr` skill (not this package) |
+
 | Binding key | Purpose | Notes |
 |---|---|---|
 | `session` | Herdr session name | Discover live; do not hardcode foreign hosts |
-| `judgment_slots` | Pane labels for plan/closing | Verify model banner each start |
+| `judgment_slots` | Pane labels for plan/closing | Verify model banner each start against reference or your documented adaptation |
 | `ordinary_pool` | Pane labels for execution | Prefer fit over broadcast |
 | `claims_state_dir` | Shared claims namespace | Must be identical across cooperating coordinators on the server host |
 | `judgment_model` | Expected model id + effort | Wrong/missing ⇒ blocker, no substitute |

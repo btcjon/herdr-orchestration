@@ -2,7 +2,7 @@
 
 Portable **coordinator orchestration policy** for Herdr worker fleets: **Astra-main**, **Sol-main**, and **Auto-main**.
 
-This repository is the installable companion for agents that already use (or will use) [Herdr](https://github.com/search?q=herdr) as a terminal/agent multiplexer. It does **not** ship the Herdr binary, credentials, model subscriptions, or a worker pool.
+This repository is the installable companion for agents that already use (or will use) **[Herdr](https://herdr.dev)** (`herdr` CLI; agent guide: https://herdr.dev/agent-guide.md). It does **not** ship the Herdr binary, credentials, model subscriptions, or a worker pool.
 
 **Stock `herdr` skill** = CLI / product authority.  
 **This skill (`herdr-orchestration`)** = how a main agent claims panes, gates plans with Astra (when applicable), routes ordinary work, verifies results, and accepts—without recursive worker delegation.
@@ -54,11 +54,13 @@ Explicit user model/harness routing wins. Do not infer model identity from the a
 
 ## Support matrix (honest)
 
-| Combination | Status in 0.1.0 |
+| Combination | Status in 0.1.1 |
 |---|---|
 | Package offline checks + claims unit tests | **Verified** via `scripts/check_package.py` and `tests/test_claims.py` |
-| Codex / Cursor / Hermes / Claude discovery | Documented; treat as **unverified** until you run the install path on that harness |
-| End-to-end live Herdr canary | **Host-specific**; not claimed for all users by this release |
+| Manual clone + symlink install/uninstall (macOS) | **Verified** — see `evidence/install-canary.md` |
+| Claim-conflict ⇒ zero prompts | **Verified** — see `evidence/claim-zero-prompt.json` |
+| `npx skills add` / in-app Cursor·Codex·Claude discovery | Documented; treat as **unverified** until run on that harness |
+| Full live multi-worker Herdr job canary | Host-specific; packaging release records claim/install evidence above, not a full fleet drill |
 
 ## Layout
 

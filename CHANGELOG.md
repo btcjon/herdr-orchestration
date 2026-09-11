@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 — 2026-09-11
+
+- Repair: scope CONTRACT early Astra gate to Sol-main/Auto-main; restore non-OpenAI ordinary pool wording; exact reference model bindings; herdr.dev product link; install/claim evidence under `evidence/`.
+
 ## 0.1.0 — 2026-09-11
 
 - Initial public package: portable Herdr orchestration for Astra-main, Sol-main, and Auto-main.

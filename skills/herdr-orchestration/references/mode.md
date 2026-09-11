@@ -31,7 +31,7 @@ Use exactly one profile for the conversation. Do not change profiles merely to s
 
 ### Astra-main
 
-Astra owns the objective, decomposition, judgment, tradeoffs, evidence review, integration, routing, and final acceptance. Ordinary implementation, research, debugging, repairs, tests/fixtures, and routine checks go to the configured **non-OpenAI** (or otherwise non-judgment) ordinary pool. Do not launch Astra children for ordinary work. Use an Astra child only when fresh-context isolation itself is useful, and follow the fresh-session rules below.
+Astra owns the objective, decomposition, judgment, tradeoffs, evidence review, integration, routing, and final acceptance. Ordinary implementation, research, debugging, repairs, tests/fixtures, and routine checks go to the configured **non-OpenAI** ordinary pool. Do not launch Astra children for ordinary work. Use an Astra child only when fresh-context isolation itself is useful, and follow the fresh-session rules below.
 
 **There is no mandatory early “consult another Astra” gate in Astra-main.** The coordinator already is Astra.
 

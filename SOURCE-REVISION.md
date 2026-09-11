@@ -11,6 +11,6 @@ Packaged from global contract **Version 3.32** and matching Herdr mode / claims 
 
 ## Reconciliation note
 
-The global contract paragraph can be read as requiring an early Astra gate for every profile. Portable `references/mode.md` **scopes** the early Astra intelligence gate and Auto-main closing alignment to **Sol-main** and **Auto-main**. **Astra-main** keeps judgment/routing/acceptance ownership and must **not** recursively consult Astra children for ordinary work. This package preserves that scoped reading; see `tests/traceability.md`.
+The global contract paragraph can be read as requiring an early Astra gate for every profile. Portable `references/mode.md` and `CONTRACT-SNIPPET.md` **scope the early Astra intelligence gate to Sol-main and Auto-main only**. **Auto-main closing alignment** is required for substantive Auto-main jobs (and for Sol-main when ordinary workers own material outcomes or the coordinator is uncertain). **Astra-main** keeps judgment/routing/acceptance ownership and must **not** recursively consult Astra children for ordinary work. See `tests/traceability.md`.
 
 Private host bindings, projections, and live pool layout stay outside this repository.
